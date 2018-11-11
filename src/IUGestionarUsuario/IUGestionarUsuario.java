@@ -1,6 +1,8 @@
 package IUGestionarUsuario;
 
 import GestionarUsuario.ControladorGestionarUsuario;
+import GestionarUsuario.DTOTipoUsuario;
+import GestionarUsuario.DTOTipoUsuario.DTOTUsuario;
 import GestionarUsuario.DTOUsuario;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -66,8 +68,10 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
             vect.add(dtoUsuario.getNombreDTOUsuario());
             vect.add(dtoUsuario.getApellidoDTOUsuario());
             vect.add(dtoUsuario.getDomicilioDTOUsuario());
-            vect.add(dtoUsuario.getEdadDTOUsuario());
-            vect.add(dtoUsuario.getTipoUsuarioDTOUsuario());
+            vect.add(dtoUsuario.getEdadDTOUsuario());            
+            int a = Integer.parseInt(dtoUsuario.getTipoUsuarioDTOUsuario());
+            vect.add(DTOTUsuario.fromId(a));
+            
             dtm.addRow(vect);
         }
 

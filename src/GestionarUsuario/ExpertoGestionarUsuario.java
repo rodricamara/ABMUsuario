@@ -63,10 +63,12 @@ public class ExpertoGestionarUsuario {
             String ape = x.getApellidoDTOUsuario();
             String dom = x.getDomicilioDTOUsuario();
             String edad = x.getEdadDTOUsuario();
-            String tu = x.getTipoUsuarioDTOUsuario();
+            String tu = x.getTipoUsuarioDTOUsuario();            
+            Integer nomTU = DTOTipoUsuario.DTOTUsuario.valueOf(tu).getId();
+            String idTU = nomTU.toString();            
             PreparedStatement insertIntoUsuer = con.prepareStatement("INSERT INTO `usuario` ("
                     + "`idUsuario`, `nombre`, `apellido`, `domicilio`, `edad`, `idTU`) "
-                    + "VALUES (NULL, '" + nom + "', '" + ape + "', '" + dom + "', '" + edad + "', '" + tu + "');");
+                    + "VALUES (NULL, '" + nom + "', '" + ape + "', '" + dom + "', '" + edad + "', '" + idTU + "');");
             insertIntoUsuer.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

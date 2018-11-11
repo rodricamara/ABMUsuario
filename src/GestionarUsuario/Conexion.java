@@ -46,8 +46,9 @@ public class Conexion {
                     + "`nomTU` VARCHAR(255) NULL , "
                     + "PRIMARY KEY (`idTU`)"
                     + ") ENGINE = InnoDB;");
-            PreparedStatement insertUserTypeStmt = con.prepareStatement("INSERT IGNORE INTO `tipousuario` (`idTU`, `nomTU`) "
-                    + "VALUES (NULL, 'Admin'), (NULL, 'Comun')");
+            PreparedStatement insertUserTypeStmt = con.prepareStatement("INSERT IGNORE INTO `tipousuario` ("
+                    + "`idTU`, `nomTU`) "
+                    + "VALUES ('1', 'Admin'), ('2', 'Comun');");
             PreparedStatement createUserStmt = con.prepareStatement("CREATE TABLE IF NOT EXISTS `usuarioDB`.`usuario`("
                     + "`idUsuario` INT(255) NOT NULL AUTO_INCREMENT,"
                     + "`nombre` VARCHAR(255) NOT NULL , "
