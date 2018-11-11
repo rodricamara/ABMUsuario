@@ -21,6 +21,7 @@ import javax.swing.table.TableRowSorter;
 public class IUGestionarUsuario extends javax.swing.JFrame {
 
     ControladorGestionarUsuario controlador = new ControladorGestionarUsuario();
+    ArrayList<DTOUsuario> listaAllUsers;
 
     public IUGestionarUsuario() throws SQLException {
         initComponents();
@@ -35,7 +36,9 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     }
 
     private void selectAllUsers() throws SQLException {
+
         ArrayList<DTOUsuario> listDtoUsuario = controlador.selectAllUsers();
+        listaAllUsers = listDtoUsuario;
 
         String[] columnas = {"Nombre", "Apellido", "Domicilio", "Edad", "Tipo Usuario"};
 
@@ -216,12 +219,13 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         try {
             if (tabla_usuario.getSelectedRow() != -1) {
                 int fila = tabla_usuario.getSelectedRow();
+                String id = listaAllUsers.get(fila).getIdDTOUsuario();
                 String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
                 String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
                 String domicilioCapturado = tabla_usuario.getValueAt(fila, 2).toString();
                 String edadCapturado = tabla_usuario.getValueAt(fila, 3).toString();
                 String tuCapturado = tabla_usuario.getValueAt(fila, 4).toString();
-                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(nombreCapturado, apellidoCapturado, domicilioCapturado, edadCapturado, tuCapturado);
+                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(id, nombreCapturado, apellidoCapturado, domicilioCapturado, edadCapturado, tuCapturado);
                 controlador.mostrarPantallaModificacion(dtoUsuarioCapturado);
                 this.dispose();
             } else {
@@ -246,9 +250,8 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         try {
             if (tabla_usuario.getSelectedRow() != -1) {
                 int fila = tabla_usuario.getSelectedRow();
-                String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
-                String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
-                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(nombreCapturado, apellidoCapturado);
+                String id = listaAllUsers.get(fila).getIdDTOUsuario();
+                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(id);
                 controlador.deleteUser(dtoUsuarioCapturado);
                 this.dispose();
                 IUGestionarUsuario iu = new IUGestionarUsuario();

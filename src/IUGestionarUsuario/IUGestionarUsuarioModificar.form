@@ -46,15 +46,12 @@
                                       <Component id="textfield_direccion" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="textfield_apellido" pref="200" max="32767" attributes="0"/>
-                                          <Component id="textfield_nombre" max="32767" attributes="0"/>
-                                          <Component id="textfield_dir" alignment="1" pref="200" max="32767" attributes="0"/>
-                                          <Component id="textfield_edad" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="combo_TipoUsuario" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="textfield_apellido" pref="200" max="32767" attributes="0"/>
+                                      <Component id="textfield_nombre" max="32767" attributes="0"/>
+                                      <Component id="textfield_dir" alignment="1" pref="200" max="32767" attributes="0"/>
+                                      <Component id="textfield_edad" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="combo_TipoUsuario" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

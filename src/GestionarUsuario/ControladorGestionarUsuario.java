@@ -11,6 +11,7 @@ public class ControladorGestionarUsuario {
     }
 
     private ExpertoGestionarUsuario experto = new ExpertoGestionarUsuario();
+    public static DTOUsuario dtoUsuarioCap;
 
     public ArrayList<DTOUsuario> selectAllUsers() throws SQLException {
         return experto.selectAllUsers();
@@ -32,11 +33,15 @@ public class ControladorGestionarUsuario {
     public void mostrarPantallaModificacion(DTOUsuario dtoUsuarioCapturado) {
         IUGestionarUsuarioModificar pantallaModificacion = new IUGestionarUsuarioModificar(dtoUsuarioCapturado);
         pantallaModificacion.setVisible(true);
-        System.out.println(dtoUsuarioCapturado.getDomicilioDTOUsuario());
+        dtoUsuarioCap = dtoUsuarioCapturado;
     }
 
     public void deleteUser(DTOUsuario dtoUsuarioCapturado) throws SQLException {
         experto.deleteUser(dtoUsuarioCapturado);
+    }
+
+    public void updateUser(DTOUsuario dtoUsuario) throws SQLException {
+        experto.updateUser(dtoUsuario);
     }
 
 }

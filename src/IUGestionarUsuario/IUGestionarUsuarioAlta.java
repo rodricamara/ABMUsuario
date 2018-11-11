@@ -179,7 +179,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
             String dir = textfield_direccion.getText();
             String edad = textfield_edad.getText();
             String tu = comboBox_tipoUsuario.getSelectedItem().toString();
-            DTOUsuario dtoUsuario = new DTOUsuario(nom, ape, dir, edad, tu);
+            DTOUsuario dtoUsuario = new DTOUsuario("" , nom, ape, dir, edad, tu);
             controlador.insertInUser(dtoUsuario);
             this.dispose();
             IUGestionarUsuario iu = new IUGestionarUsuario();

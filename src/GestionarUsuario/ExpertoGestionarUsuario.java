@@ -19,12 +19,13 @@ public class ExpertoGestionarUsuario {
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + nombretabla);
 
             while (rs.next()) {
+                String id = rs.getString("idUsuario");
                 String nom = rs.getString("nombre");
                 String ape = rs.getString("apellido");
                 String dom = rs.getString("domicilio");
                 String edad = rs.getString("edad");
                 String tu = rs.getString("idTU");
-                DTOUsuario dtoUsuario = new DTOUsuario(nom, ape, dom, edad, tu);
+                DTOUsuario dtoUsuario = new DTOUsuario(id, nom, ape, dom, edad, tu);
                 dtoList.add(dtoUsuario);
             }
         } catch (Exception ex) {
@@ -79,14 +80,29 @@ public class ExpertoGestionarUsuario {
     void deleteUser(DTOUsuario dtoUsuarioCapturado) throws SQLException {
         try {
             Conexion.getInstance().getConnetion();
-
-            String nom = dtoUsuarioCapturado.getNombreDTOUsuario();
-            String ape = dtoUsuarioCapturado.getApellidoDTOUsuario();
-            System.out.println(nom);
-            System.out.println(ape);
+            String id = dtoUsuarioCapturado.getIdDTOUsuario();
             PreparedStatement insertIntoUsuer = con.prepareStatement("DELETE FROM `usuario` "
-                    + "WHERE `nombre` = \"" + nom + "\" && `apellido` = \"" + ape + "\";");
+                    + "WHERE `idUsuario` = \"" + id + "\";");
             insertIntoUsuer.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        con.close();
+    }
+
+    void updateUser(DTOUsuario dtoUsuario) throws SQLException {
+        try {
+            Conexion.getInstance().getConnetion();
+            String id = dtoUsuario.getIdDTOUsuario();
+            String nom = dtoUsuario.getNombreDTOUsuario();
+            String ape = dtoUsuario.getApellidoDTOUsuario();
+            String dir = dtoUsuario.getDomicilioDTOUsuario();
+            String edad = dtoUsuario.getEdadDTOUsuario();
+            PreparedStatement updateUser = con.prepareStatement(
+                    "UPDATE `usuario` "
+                    + "SET `nombre` = \"" + nom + "\",`apellido` = \"" + ape + "\",`domicilio` = \"" + dir + "\",`edad` = \"" + edad + "\" "
+                    + "WHERE `idUsuario` IN (\"" + id + "\");");
+            updateUser.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

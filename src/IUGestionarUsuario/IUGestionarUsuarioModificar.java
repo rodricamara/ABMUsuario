@@ -179,6 +179,22 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
 
     private void button_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AceptarActionPerformed
 
+        try {
+            String id = dtoUsuario.getIdDTOUsuario();
+            String nom = textfield_nombre.getText();
+            String ape = textfield_apellido.getText();
+            String dir = textfield_dir.getText();
+            String edad = textfield_edad.getText();
+            String tu = combo_TipoUsuario.getSelectedItem().toString();
+            DTOUsuario dtoU = new DTOUsuario(id, nom, ape, dir, edad, tu);
+            controlador.updateUser(dtoU);
+            this.dispose();
+            IUGestionarUsuario iu = new IUGestionarUsuario();
+            iu.setLocationRelativeTo(null);
+            iu.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(IUGestionarUsuarioModificar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_button_AceptarActionPerformed
 
     private void button_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_CancelarActionPerformed
@@ -260,6 +276,5 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_edad;
     private javax.swing.JTextField textfield_nombre;
     // End of variables declaration//GEN-END:variables
-
 
 }
