@@ -24,60 +24,58 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="label_nombre" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="textfield_nombre" min="-2" pref="200" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label_direccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_edad" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label_tipo_usuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="button_Aceptar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="label_edad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_direccion" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="textfield_apellido" max="32767" attributes="0"/>
-                                          <Component id="textfield_direccion" max="32767" attributes="0"/>
-                                          <Component id="textfield_edad" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="textfield_direccion" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="117" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="button_Cancelar" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="combo_TipoUsuario" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="textfield_apellido" pref="200" max="32767" attributes="0"/>
+                                          <Component id="textfield_nombre" max="32767" attributes="0"/>
+                                          <Component id="textfield_dir" alignment="1" pref="200" max="32767" attributes="0"/>
+                                          <Component id="textfield_edad" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="combo_TipoUsuario" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label_apellido" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="label_apellido" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="button_Cancelar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button_Aceptar" min="-2" pref="81" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,7 +84,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textfield_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,27 +94,29 @@
                   <Component id="label_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textfield_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Component id="textfield_direccion" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textfield_dir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="label_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textfield_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="label_edad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textfield_edad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_edad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="label_tipo_usuario" min="-2" max="-2" attributes="0"/>
-                  <Component id="combo_TipoUsuario" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="button_Aceptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="button_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="combo_TipoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_tipo_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="button_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="button_Aceptar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,28 +137,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="label_apellido">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apellido Usuario"/>
+        <Property name="text" type="java.lang.String" value="Apellido Usuario:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="label_direccion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="textfield_nombre">
-      <Properties>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Texto"/>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_nombreActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="label_edad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edad"/>
+        <Property name="text" type="java.lang.String" value="Edad:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="label_tipo_usuario">
@@ -173,6 +162,9 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_TipoUsuarioActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -193,14 +185,23 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_CancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="textfield_apellido">
+    <Component class="javax.swing.JPasswordField" name="textfield_direccion">
+      <Properties>
+        <Property name="UI" type="javax.swing.plaf.TextUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="null"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textfield_edad">
+    </Component>
+    <Component class="javax.swing.JTextField" name="textfield_nombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_apellidoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_nombreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="textfield_direccion">
+    <Component class="javax.swing.JTextField" name="textfield_dir">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="textfield_edad">
+    <Component class="javax.swing.JTextField" name="textfield_apellido">
     </Component>
   </SubComponents>
 </Form>

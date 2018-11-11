@@ -63,9 +63,9 @@ public class ExpertoGestionarUsuario {
             String ape = x.getApellidoDTOUsuario();
             String dom = x.getDomicilioDTOUsuario();
             String edad = x.getEdadDTOUsuario();
-            String tu = x.getTipoUsuarioDTOUsuario();            
+            String tu = x.getTipoUsuarioDTOUsuario();
             Integer nomTU = DTOTipoUsuario.DTOTUsuario.valueOf(tu).getId();
-            String idTU = nomTU.toString();            
+            String idTU = nomTU.toString();
             PreparedStatement insertIntoUsuer = con.prepareStatement("INSERT INTO `usuario` ("
                     + "`idUsuario`, `nombre`, `apellido`, `domicilio`, `edad`, `idTU`) "
                     + "VALUES (NULL, '" + nom + "', '" + ape + "', '" + dom + "', '" + edad + "', '" + idTU + "');");
@@ -76,4 +76,20 @@ public class ExpertoGestionarUsuario {
         con.close();
     }
 
+    void deleteUser(DTOUsuario dtoUsuarioCapturado) throws SQLException {
+        try {
+            Conexion.getInstance().getConnetion();
+
+            String nom = dtoUsuarioCapturado.getNombreDTOUsuario();
+            String ape = dtoUsuarioCapturado.getApellidoDTOUsuario();
+            System.out.println(nom);
+            System.out.println(ape);
+            PreparedStatement insertIntoUsuer = con.prepareStatement("DELETE FROM `usuario` "
+                    + "WHERE `nombre` = \"" + nom + "\" && `apellido` = \"" + ape + "\";");
+            insertIntoUsuer.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        con.close();
+    }
 }

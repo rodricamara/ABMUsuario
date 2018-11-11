@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
@@ -68,15 +69,13 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
             vect.add(dtoUsuario.getNombreDTOUsuario());
             vect.add(dtoUsuario.getApellidoDTOUsuario());
             vect.add(dtoUsuario.getDomicilioDTOUsuario());
-            vect.add(dtoUsuario.getEdadDTOUsuario());            
+            vect.add(dtoUsuario.getEdadDTOUsuario());
             int a = Integer.parseInt(dtoUsuario.getTipoUsuarioDTOUsuario());
             vect.add(DTOTUsuario.fromId(a));
-            
+
             dtm.addRow(vect);
         }
-
         tabla_usuario.setModel(dtm);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -92,13 +91,14 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         textField_filtrar = new javax.swing.JTextField();
         button_filtrar = new javax.swing.JButton();
         btn_cerrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Gestionar Usuario");
 
-        jLabel2.setText("Seleccione una opción");
+        jLabel2.setText("Seleccione una opción:");
 
         button_Alta.setText("Alta");
         button_Alta.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +142,13 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Baja");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,9 +157,6 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(460, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(textField_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,37 +164,44 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
                                 .addComponent(button_filtrar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(btn_cerrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_Alta, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(74, 74, 74))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(button_Alta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button_modificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textField_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button_filtrar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(button_Alta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(button_modificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_Alta)
-                    .addComponent(button_modificacion)
+                    .addComponent(jButton1)
                     .addComponent(btn_cerrar))
-                .addGap(96, 96, 96))
+                .addGap(53, 53, 53))
         );
 
         pack();
@@ -202,7 +213,23 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_button_AltaActionPerformed
 
     private void button_modificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modificacionActionPerformed
-
+        try {
+            if (tabla_usuario.getSelectedRow() != -1) {
+                int fila = tabla_usuario.getSelectedRow();
+                String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
+                String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
+                String domicilioCapturado = tabla_usuario.getValueAt(fila, 2).toString();
+                String edadCapturado = tabla_usuario.getValueAt(fila, 3).toString();
+                String tuCapturado = tabla_usuario.getValueAt(fila, 4).toString();
+                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(nombreCapturado, apellidoCapturado, domicilioCapturado, edadCapturado, tuCapturado);
+                controlador.mostrarPantallaModificacion(dtoUsuarioCapturado);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un usuario");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_button_modificacionActionPerformed
 
     private void button_filtrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_filtrarActionPerformed
@@ -214,6 +241,26 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btn_cerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            if (tabla_usuario.getSelectedRow() != -1) {
+                int fila = tabla_usuario.getSelectedRow();
+                String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
+                String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
+                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(nombreCapturado, apellidoCapturado);
+                controlador.deleteUser(dtoUsuarioCapturado);
+                this.dispose();
+                IUGestionarUsuario iu = new IUGestionarUsuario();
+                iu.setLocationRelativeTo(null);
+                iu.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un usuario");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -257,6 +304,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton button_Alta;
     private javax.swing.JButton button_filtrar;
     private javax.swing.JButton button_modificacion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

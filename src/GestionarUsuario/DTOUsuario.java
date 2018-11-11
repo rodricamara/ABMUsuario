@@ -8,6 +8,12 @@ public class DTOUsuario {
     private String edadDTOUsuario;
     private String tipoUsuarioDTOUsuario;
 
+    public DTOUsuario(String nombreDTOUsuario, String apellidoDTOUsuario) {
+        this.nombreDTOUsuario = nombreDTOUsuario;
+        this.apellidoDTOUsuario = apellidoDTOUsuario;
+    }
+
+    
     public DTOUsuario(String nombreDTOUsuario, String apellidoDTOUsuario, String domicilioDTOUsuario, String edadDTOUsuario, String tipoUsuarioDTOUsuario) {
         this.nombreDTOUsuario = nombreDTOUsuario;
         this.apellidoDTOUsuario = apellidoDTOUsuario;
