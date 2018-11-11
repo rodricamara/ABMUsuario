@@ -4,8 +4,11 @@ import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
@@ -16,21 +19,19 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
 
     ControladorGestionarUsuario controlador = new ControladorGestionarUsuario();
 
-    public IUGestionarUsuario() {
+    public IUGestionarUsuario() throws SQLException {
         initComponents();
         selectAllUsers();
-        
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent ev) {
-                dispose();
-                // IULogin iULogin = new IULogin();
-                // iULogin.setVisible(true);
+                System.exit(0);
             }
         });
     }
 
-    private void selectAllUsers() {
+    private void selectAllUsers() throws SQLException {
         ArrayList<DTOUsuario> listDtoUsuario = controlador.selectAllUsers();
 
         String[] columnas = {"Nombre", "Apellido", "Domicilio", "Edad", "Tipo Usuario"};
@@ -237,7 +238,11 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IUGestionarUsuario().setVisible(true);
+                try {
+                    new IUGestionarUsuario().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(IUGestionarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

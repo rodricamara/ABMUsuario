@@ -1,9 +1,6 @@
 package IUGestionarUsuario;
 
 import GestionarUsuario.ControladorGestionarUsuario;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
 
 
 public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
@@ -26,8 +23,7 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
 
     
     public void setearNombreUsuario(String nombreUsuario){
-        text_nombreUsuario.setText(nombreUsuario);
-        this.nombreUsuario = nombreUsuario;
+
     }
 
     @SuppressWarnings("unchecked")
@@ -35,52 +31,41 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        text_nombreUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        checkbox_habilitado = new javax.swing.JCheckBox();
-        jLabel6 = new javax.swing.JLabel();
-        label_Empresa = new javax.swing.JLabel();
+        label_nombre = new javax.swing.JLabel();
+        label_apellido = new javax.swing.JLabel();
+        label_direccion = new javax.swing.JLabel();
+        textfield_nombre = new javax.swing.JTextField();
+        label_edad = new javax.swing.JLabel();
+        label_tipo_usuario = new javax.swing.JLabel();
         combo_TipoUsuario = new javax.swing.JComboBox<>();
-        combo_Empresa = new javax.swing.JComboBox<>();
         button_Aceptar = new javax.swing.JButton();
         button_Cancelar = new javax.swing.JButton();
-        passwordField1 = new javax.swing.JPasswordField();
-        passwordField2 = new javax.swing.JPasswordField();
+        textfield_apellido = new javax.swing.JPasswordField();
+        textfield_direccion = new javax.swing.JPasswordField();
+        textfield_edad = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Modificar Usuario");
 
-        jLabel5.setText("Nombre Usuario:");
+        label_nombre.setText("Nombre Usuario:");
 
-        jLabel1.setText("Contraseña nueva:");
+        label_apellido.setText("Apellido Usuario");
 
-        jLabel2.setText("Repetir contraseña:");
+        label_direccion.setText("Dirección");
 
-        text_nombreUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        text_nombreUsuario.setEnabled(false);
-        text_nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+        textfield_nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textfield_nombre.setEnabled(false);
+        textfield_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_nombreUsuarioActionPerformed(evt);
+                textfield_nombreActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Habilitado");
+        label_edad.setText("Edad");
 
-        checkbox_habilitado.setSelected(true);
-        checkbox_habilitado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkbox_habilitadoActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Tipo Usuario:");
-
-        label_Empresa.setText("Empresa Asociada:");
+        label_tipo_usuario.setText("Tipo Usuario:");
 
         combo_TipoUsuario.setEnabled(false);
 
@@ -98,9 +83,9 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
             }
         });
 
-        passwordField1.addActionListener(new java.awt.event.ActionListener() {
+        textfield_apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordField1ActionPerformed(evt);
+                textfield_apellidoActionPerformed(evt);
             }
         });
 
@@ -114,34 +99,35 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(label_nombre)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(text_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textfield_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(button_Aceptar)
-                                        .addComponent(label_Empresa)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label_direccion)
+                                    .addComponent(label_edad)
+                                    .addComponent(label_tipo_usuario)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(checkbox_habilitado)
-                                            .addComponent(combo_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(combo_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(button_Cancelar))
-                                        .addGap(119, 119, 119))
+                                        .addGap(35, 35, 35)
+                                        .addComponent(button_Aceptar)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(113, 113, 113)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(passwordField1)
-                                            .addComponent(passwordField2))))))
-                        .addGap(44, 44, 44))
+                                            .addComponent(textfield_apellido)
+                                            .addComponent(textfield_direccion)
+                                            .addComponent(textfield_edad)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(button_Cancelar)
+                                                .addGap(119, 119, 119))
+                                            .addComponent(combo_TipoUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(42, 42, 42))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(label_apellido)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
@@ -155,42 +141,34 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(text_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label_nombre)
+                    .addComponent(textfield_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label_apellido)
+                    .addComponent(textfield_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label_direccion)
+                    .addComponent(textfield_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(checkbox_habilitado))
+                    .addComponent(label_edad)
+                    .addComponent(textfield_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addComponent(label_tipo_usuario)
                     .addComponent(combo_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_Empresa)
-                    .addComponent(combo_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_Aceptar)
                     .addComponent(button_Cancelar))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void checkbox_habilitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbox_habilitadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkbox_habilitadoActionPerformed
 
     private void button_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AceptarActionPerformed
 
@@ -200,13 +178,13 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_button_CancelarActionPerformed
 
-    private void text_nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_nombreUsuarioActionPerformed
+    private void textfield_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_text_nombreUsuarioActionPerformed
+    }//GEN-LAST:event_textfield_nombreActionPerformed
 
-    private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
+    private void textfield_apellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_apellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordField1ActionPerformed
+    }//GEN-LAST:event_textfield_apellidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,18 +225,16 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_Aceptar;
     private javax.swing.JButton button_Cancelar;
-    private javax.swing.JCheckBox checkbox_habilitado;
-    private javax.swing.JComboBox<String> combo_Empresa;
     private javax.swing.JComboBox<String> combo_TipoUsuario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel label_Empresa;
-    private javax.swing.JPasswordField passwordField1;
-    private javax.swing.JPasswordField passwordField2;
-    private javax.swing.JTextField text_nombreUsuario;
+    private javax.swing.JLabel label_apellido;
+    private javax.swing.JLabel label_direccion;
+    private javax.swing.JLabel label_edad;
+    private javax.swing.JLabel label_nombre;
+    private javax.swing.JLabel label_tipo_usuario;
+    private javax.swing.JPasswordField textfield_apellido;
+    private javax.swing.JPasswordField textfield_direccion;
+    private javax.swing.JPasswordField textfield_edad;
+    private javax.swing.JTextField textfield_nombre;
     // End of variables declaration//GEN-END:variables
 }

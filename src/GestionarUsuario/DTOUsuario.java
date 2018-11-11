@@ -1,10 +1,7 @@
-
 package GestionarUsuario;
 
-import java.util.Date;
-
 public class DTOUsuario {
-    
+
     private String nombreDTOUsuario;
     private String apellidoDTOUsuario;
     private String domicilioDTOUsuario;
@@ -59,6 +56,4 @@ public class DTOUsuario {
         this.tipoUsuarioDTOUsuario = tipoUsuarioDTOUsuario;
     }
 
-    
-    
 }

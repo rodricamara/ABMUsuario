@@ -5,6 +5,7 @@ import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +22,13 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent ev) {
-                dispose();
-                IUGestionarUsuario iu = new IUGestionarUsuario();
-                iu.setVisible(true);
+                try {
+                    dispose();
+                    IUGestionarUsuario iu = new IUGestionarUsuario();
+                    iu.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -167,26 +172,34 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
 
     private void button_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_crearActionPerformed
 
-        String nom = textfield_nombre.getText();
-        String ape = textfield_apellido.getText();
-        String dir = textfield_direccion.getText();
-        String edad = textfield_edad.getText();
-        String tu = comboBox_tipoUsuario.getSelectedItem().toString();
-
-        DTOUsuario dtoUsuario = new DTOUsuario(nom, ape, dir, edad, "1");
-        controlador.insertInUser(dtoUsuario);
-        this.dispose();
-        IUGestionarUsuario iu = new IUGestionarUsuario();
-        iu.setVisible(true);
-
+        try {
+            String nom = textfield_nombre.getText();
+            String ape = textfield_apellido.getText();
+            String dir = textfield_direccion.getText();
+            String edad = textfield_edad.getText();
+            String tu = comboBox_tipoUsuario.getSelectedItem().toString();
+            
+            DTOUsuario dtoUsuario = new DTOUsuario(nom, ape, dir, edad, "1");
+            controlador.insertInUser(dtoUsuario);
+            this.dispose();
+            IUGestionarUsuario iu = new IUGestionarUsuario();
+            iu.setLocationRelativeTo(null);
+            iu.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_button_crearActionPerformed
 
     private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
-        this.dispose();
-        IUGestionarUsuario iu = new IUGestionarUsuario();
-        iu.setLocationRelativeTo(null);
-        iu.setVisible(true);
+        try {
+            this.dispose();
+            IUGestionarUsuario iu = new IUGestionarUsuario();
+            iu.setLocationRelativeTo(null);
+            iu.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_button_atrasActionPerformed
 
     private void textfield_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_nombreActionPerformed

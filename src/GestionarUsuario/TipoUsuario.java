@@ -10,6 +10,7 @@ class TipoUsuario {
         private TUsuario(int tUsuario) {
             this.tUsuario = tUsuario;
         }
+
         public int getTUsuario() {
             return tUsuario;
         }

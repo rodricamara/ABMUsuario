@@ -5,7 +5,7 @@ package GestionarUsuario;
  * @author Rodri
  */
 public class DTOTipoUsuario {
-    
+
     private String nombreDTOTipoUsuario;
 
     public DTOTipoUsuario(String nombreDTOTipoUsuario) {
@@ -20,6 +20,4 @@ public class DTOTipoUsuario {
         this.nombreDTOTipoUsuario = nombreDTOTipoUsuario;
     }
 
-    
-    
 }

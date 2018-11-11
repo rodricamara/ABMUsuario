@@ -29,45 +29,47 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_nombre" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="text_nombreUsuario" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="textfield_nombre" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="label_direccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_edad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_tipo_usuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="button_Aceptar" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label_Empresa" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace pref="113" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="checkbox_habilitado" min="-2" max="-2" attributes="0"/>
-                                          <Component id="combo_TipoUsuario" min="-2" max="-2" attributes="0"/>
-                                          <Component id="combo_Empresa" min="-2" max="-2" attributes="0"/>
-                                          <Component id="button_Cancelar" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="passwordField1" max="32767" attributes="0"/>
-                                          <Component id="passwordField2" max="32767" attributes="0"/>
+                                          <Component id="textfield_apellido" max="32767" attributes="0"/>
+                                          <Component id="textfield_direccion" max="32767" attributes="0"/>
+                                          <Component id="textfield_edad" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="button_Cancelar" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="combo_TipoUsuario" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_apellido" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -86,40 +88,35 @@
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="text_nombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textfield_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textfield_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textfield_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="checkbox_habilitado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_edad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textfield_edad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_tipo_usuario" min="-2" max="-2" attributes="0"/>
                   <Component id="combo_TipoUsuario" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="label_Empresa" min="-2" max="-2" attributes="0"/>
-                  <Component id="combo_Empresa" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="button_Aceptar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="button_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace pref="75" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,22 +130,22 @@
         <Property name="text" type="java.lang.String" value="Modificar Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="label_nombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre Usuario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="label_apellido">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a nueva:"/>
+        <Property name="text" type="java.lang.String" value="Apellido Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="label_direccion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Repetir contrase&#xf1;a:"/>
+        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="text_nombreUsuario">
+    <Component class="javax.swing.JTextField" name="textfield_nombre">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Texto"/>
@@ -156,30 +153,17 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_nombreUsuarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_nombreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="label_edad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Habilitado"/>
+        <Property name="text" type="java.lang.String" value="Edad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="checkbox_habilitado">
-      <Properties>
-        <Property name="selected" type="boolean" value="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkbox_habilitadoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="label_tipo_usuario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tipo Usuario:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="label_Empresa">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Empresa Asociada:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="combo_TipoUsuario">
@@ -188,16 +172,6 @@
           <StringArray count="0"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="combo_Empresa">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -219,12 +193,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_CancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordField1">
+    <Component class="javax.swing.JPasswordField" name="textfield_apellido">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_apellidoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordField2">
+    <Component class="javax.swing.JPasswordField" name="textfield_direccion">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="textfield_edad">
     </Component>
   </SubComponents>
 </Form>
