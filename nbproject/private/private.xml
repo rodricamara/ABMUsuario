@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/Conexion.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/Main.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/DTOUsuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/Usuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/TipoUsuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/ExpertoGestionarUsuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/IUGestionarUsuario/IUGestionarUsuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/DTOTipoUsuario.java</file>
+            <file>file:/C:/Users/Rodri/Documents/NetBeansProjects/Usuario/src/GestionarUsuario/ControladorGestionarUsuario.java</file>
+        </group>
     </open-files>
 </project-private>

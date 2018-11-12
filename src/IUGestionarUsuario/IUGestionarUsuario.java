@@ -1,7 +1,6 @@
 package IUGestionarUsuario;
 
 import GestionarUsuario.ControladorGestionarUsuario;
-import GestionarUsuario.DTOTipoUsuario;
 import GestionarUsuario.DTOTipoUsuario.DTOTUsuario;
 import GestionarUsuario.DTOUsuario;
 import java.awt.event.WindowAdapter;
@@ -26,7 +25,6 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     public IUGestionarUsuario() throws SQLException {
         initComponents();
         selectAllUsers();
-
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent ev) {
@@ -35,7 +33,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         });
     }
 
-    private void selectAllUsers() throws SQLException {
+    private void selectAllUsers() {
 
         ArrayList<DTOUsuario> listDtoUsuario = controlador.selectAllUsers();
         listaAllUsers = listDtoUsuario;
@@ -94,7 +92,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         textField_filtrar = new javax.swing.JTextField();
         button_filtrar = new javax.swing.JButton();
         btn_cerrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        button_baja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,10 +143,10 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Baja");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button_baja.setText("Baja");
+        button_baja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button_bajaActionPerformed(evt);
             }
         });
 
@@ -177,7 +175,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(button_Alta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(button_modificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(button_baja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 21, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +200,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
                 .addComponent(button_modificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(button_baja)
                     .addComponent(btn_cerrar))
                 .addGap(53, 53, 53))
         );
@@ -216,23 +214,19 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_button_AltaActionPerformed
 
     private void button_modificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_modificacionActionPerformed
-        try {
-            if (tabla_usuario.getSelectedRow() != -1) {
-                int fila = tabla_usuario.getSelectedRow();
-                String id = listaAllUsers.get(fila).getIdDTOUsuario();
-                String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
-                String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
-                String domicilioCapturado = tabla_usuario.getValueAt(fila, 2).toString();
-                String edadCapturado = tabla_usuario.getValueAt(fila, 3).toString();
-                String tuCapturado = tabla_usuario.getValueAt(fila, 4).toString();
-                DTOUsuario dtoUsuarioCapturado = new DTOUsuario(id, nombreCapturado, apellidoCapturado, domicilioCapturado, edadCapturado, tuCapturado);
-                controlador.mostrarPantallaModificacion(dtoUsuarioCapturado);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Debe seleccionar un usuario");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (tabla_usuario.getSelectedRow() != -1) {
+            int fila = tabla_usuario.getSelectedRow();
+            String id = listaAllUsers.get(fila).getIdDTOUsuario();
+            String nombreCapturado = tabla_usuario.getValueAt(fila, 0).toString();
+            String apellidoCapturado = tabla_usuario.getValueAt(fila, 1).toString();
+            String domicilioCapturado = tabla_usuario.getValueAt(fila, 2).toString();
+            String edadCapturado = tabla_usuario.getValueAt(fila, 3).toString();
+            String tuCapturado = tabla_usuario.getValueAt(fila, 4).toString();
+            DTOUsuario dtoUsuarioCapturado = new DTOUsuario(id, nombreCapturado, apellidoCapturado, domicilioCapturado, edadCapturado, tuCapturado);
+            controlador.mostrarPantallaModificacion(dtoUsuarioCapturado);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un usuario");
         }
     }//GEN-LAST:event_button_modificacionActionPerformed
 
@@ -246,7 +240,7 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void button_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bajaActionPerformed
         try {
             if (tabla_usuario.getSelectedRow() != -1) {
                 int fila = tabla_usuario.getSelectedRow();
@@ -260,10 +254,10 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Debe seleccionar un usuario");
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error al dar de baja usuario");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_button_bajaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -305,9 +299,9 @@ public class IUGestionarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JButton button_Alta;
+    private javax.swing.JButton button_baja;
     private javax.swing.JButton button_filtrar;
     private javax.swing.JButton button_modificacion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

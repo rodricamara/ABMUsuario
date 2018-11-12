@@ -2,7 +2,6 @@ package GestionarUsuario;
 
 import IUGestionarUsuario.IUGestionarUsuarioAlta;
 import IUGestionarUsuario.IUGestionarUsuarioModificar;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ControladorGestionarUsuario {
@@ -13,16 +12,16 @@ public class ControladorGestionarUsuario {
     private ExpertoGestionarUsuario experto = new ExpertoGestionarUsuario();
     public static DTOUsuario dtoUsuarioCap;
 
-    public ArrayList<DTOUsuario> selectAllUsers() throws SQLException {
+    public ArrayList<DTOUsuario> selectAllUsers() {
         return experto.selectAllUsers();
     }
 
-    public ArrayList<DTOTipoUsuario> selectAllUsersTypes() throws SQLException {
+    public ArrayList<DTOTipoUsuario> selectAllUsersTypes() {
         return experto.selectAllUsersTypes();
     }
 
-    public void insertInUser(DTOUsuario x) throws SQLException {
-        experto.insertInUser(x);
+    public void insertInUser(DTOUsuario dtoUsuario) {
+        experto.insertInUser(dtoUsuario);
     }
 
     public void mostrarPantallaAlta() {
@@ -36,12 +35,11 @@ public class ControladorGestionarUsuario {
         dtoUsuarioCap = dtoUsuarioCapturado;
     }
 
-    public void deleteUser(DTOUsuario dtoUsuarioCapturado) throws SQLException {
+    public void deleteUser(DTOUsuario dtoUsuarioCapturado) {
         experto.deleteUser(dtoUsuarioCapturado);
     }
 
-    public void updateUser(DTOUsuario dtoUsuario) throws SQLException {
+    public void updateUser(DTOUsuario dtoUsuario) {
         experto.updateUser(dtoUsuario);
     }
-
 }

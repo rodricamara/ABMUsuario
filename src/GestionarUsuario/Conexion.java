@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Conexion {
 
@@ -21,8 +22,7 @@ public class Conexion {
 
     public static Connection con;
 
-    public Connection getConnetion() throws Exception {
-
+    public Connection getConnetion() {
         try {
             String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://localhost/usuarioDB";
@@ -32,12 +32,18 @@ public class Conexion {
             Connection conection = (Connection) DriverManager.getConnection(url, userName, userPassword);
             Conexion.con = conection;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("No se pudo establecer la conexión con la base de datos");
+            //JOptionPane.showMessageDialog(null, "Error de conexión, el programa se cerrará", "Error", JOptionPane.ERROR_MESSAGE);
+            //System.exit(0);
+        } catch (ClassNotFoundException e1) {
+            System.out.println("Driver para la conexión no encontrado");
+            JOptionPane.showMessageDialog(null, "Driver para la conexión no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
         return con;
     }
 
-    public void createDBandTables() throws SQLException {
+    public void createDBandTables() {
         try {
             getInstance().getConnetion();
             PreparedStatement createDBCREATE = con.prepareStatement("CREATE DATABASE IF NOT EXISTS usuarioDB;");
@@ -63,10 +69,16 @@ public class Conexion {
             createUserTypeStmt.executeUpdate();
             insertUserTypeStmt.executeUpdate();
             createUserStmt.executeUpdate();
-            con.close();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Error al intentar crear base de datos y/o tablas");
+            JOptionPane.showMessageDialog(null, "Error al intentar crear base de datos y/o tablas", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar la conexion");
+            }
         }
     }
-
 }

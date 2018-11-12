@@ -13,8 +13,6 @@ public class DTOUsuario {
         this.idDTOUsuario = idDTOUsuario;
     }
 
-
-
     public DTOUsuario(String idDTOUsuario, String nombreDTOUsuario, String apellidoDTOUsuario, String domicilioDTOUsuario, String edadDTOUsuario, String tipoUsuarioDTOUsuario) {
         this.idDTOUsuario = idDTOUsuario;
         this.nombreDTOUsuario = nombreDTOUsuario;
@@ -31,8 +29,6 @@ public class DTOUsuario {
     public void setIdDTOUsuario(String idDTOUsuario) {
         this.idDTOUsuario = idDTOUsuario;
     }
-
-
 
     public String getNombreDTOUsuario() {
         return nombreDTOUsuario;

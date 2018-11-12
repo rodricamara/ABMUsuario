@@ -3,8 +3,7 @@ package IUGestionarUsuario;
 import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
 
@@ -13,22 +12,19 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
 
     ControladorGestionarUsuario controlador = new ControladorGestionarUsuario();
 
-    public IUGestionarUsuarioModificar(DTOUsuario x) {
+    public IUGestionarUsuarioModificar(DTOUsuario dtoUsuarioRecibido) {
         initComponents();
-        dtoUsuario = x;
+        label_oculto.setVisible(false);
+        dtoUsuario = dtoUsuarioRecibido;
         setearUsuarioAModificar(dtoUsuario);
     }
 
-    private void setearUsuarioAModificar(DTOUsuario x) {
-        textfield_nombre.setText(x.getNombreDTOUsuario());
-        textfield_apellido.setText(x.getApellidoDTOUsuario());
-        textfield_dir.setText(x.getDomicilioDTOUsuario());
-        textfield_edad.setText(x.getEdadDTOUsuario());
-        combo_TipoUsuario.addItem(x.getTipoUsuarioDTOUsuario());
-    }
-
-    public void setearNombreUsuario(String nombreUsuario) {
-
+    private void setearUsuarioAModificar(DTOUsuario dtoUsuario) {
+        textfield_nombre.setText(dtoUsuario.getNombreDTOUsuario());
+        textfield_apellido.setText(dtoUsuario.getApellidoDTOUsuario());
+        textfield_dir.setText(dtoUsuario.getDomicilioDTOUsuario());
+        textfield_edad.setText(dtoUsuario.getEdadDTOUsuario());
+        combo_TipoUsuario.addItem(dtoUsuario.getTipoUsuarioDTOUsuario());
     }
 
     @SuppressWarnings("unchecked")
@@ -49,6 +45,7 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
         textfield_nombre = new javax.swing.JTextField();
         textfield_dir = new javax.swing.JTextField();
         textfield_apellido = new javax.swing.JTextField();
+        label_oculto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,11 +85,19 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
 
         textfield_direccion.setUI(null);
 
+        textfield_edad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfield_edadKeyTyped(evt);
+            }
+        });
+
         textfield_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_nombreActionPerformed(evt);
             }
         });
+
+        label_oculto.setText("labelEdad");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,7 +124,9 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
                                         .addComponent(textfield_direccion)
                                         .addGap(206, 206, 206))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(label_oculto)
+                                        .addGap(48, 48, 48)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(textfield_apellido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                             .addComponent(textfield_nombre)
@@ -161,7 +168,8 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textfield_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_edad))
+                    .addComponent(label_edad)
+                    .addComponent(label_oculto))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(combo_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,23 +186,26 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AceptarActionPerformed
-
-        try {
-            String id = dtoUsuario.getIdDTOUsuario();
-            String nom = textfield_nombre.getText();
-            String ape = textfield_apellido.getText();
-            String dir = textfield_dir.getText();
-            String edad = textfield_edad.getText();
-            String tu = combo_TipoUsuario.getSelectedItem().toString();
-            DTOUsuario dtoU = new DTOUsuario(id, nom, ape, dir, edad, tu);
-            controlador.updateUser(dtoU);
-            this.dispose();
-            IUGestionarUsuario iu = new IUGestionarUsuario();
-            iu.setLocationRelativeTo(null);
-            iu.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(IUGestionarUsuarioModificar.class.getName()).log(Level.SEVERE, null, ex);
+        if (Integer.parseInt(textfield_edad.getText()) <= 99 && Integer.parseInt(textfield_edad.getText()) >= 0) {
+            try {
+                String id = dtoUsuario.getIdDTOUsuario();
+                String nom = textfield_nombre.getText();
+                String ape = textfield_apellido.getText();
+                String dir = textfield_dir.getText();
+                String edad = textfield_edad.getText();
+                String tu = combo_TipoUsuario.getSelectedItem().toString();
+                DTOUsuario dtoU = new DTOUsuario(id, nom, ape, dir, edad, tu);
+                controlador.updateUser(dtoU);
+                this.dispose();
+                IUGestionarUsuario iu = new IUGestionarUsuario();
+                iu.setLocationRelativeTo(null);
+                iu.setVisible(true);
+            } catch (Exception e) {
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Edad debe ser entre 0 y 99 años");
         }
+
     }//GEN-LAST:event_button_AceptarActionPerformed
 
     private void button_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_CancelarActionPerformed
@@ -204,8 +215,8 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
             iu.setLocationRelativeTo(null);
             iu.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_button_CancelarActionPerformed
 
     private void textfield_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_nombreActionPerformed
@@ -215,6 +226,18 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     private void combo_TipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TipoUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_TipoUsuarioActionPerformed
+
+    private void textfield_edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_edadKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            label_oculto.setVisible(true);
+            label_oculto.setText("Solo numeros");
+        } else {
+            label_oculto.setVisible(false);
+        }
+    }//GEN-LAST:event_textfield_edadKeyTyped
 
     /**
      * @param args the command line arguments
@@ -269,6 +292,7 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     private javax.swing.JLabel label_direccion;
     private javax.swing.JLabel label_edad;
     private javax.swing.JLabel label_nombre;
+    private javax.swing.JLabel label_oculto;
     private javax.swing.JLabel label_tipo_usuario;
     private javax.swing.JTextField textfield_apellido;
     private javax.swing.JTextField textfield_dir;

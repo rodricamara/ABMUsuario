@@ -47,6 +47,8 @@
                   <Component id="comboBox_tipoUsuario" alignment="0" max="32767" attributes="0"/>
                   <Component id="textfield_edad" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="label_oculto" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -73,6 +75,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label_edad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textfield_edad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_oculto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -112,6 +115,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="textfield_nombre">
       <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textfield_nombreFocusGained"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_nombreActionPerformed"/>
       </Events>
     </Component>
@@ -156,7 +160,13 @@
     <Component class="javax.swing.JTextField" name="textfield_edad">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfield_edadActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textfield_edadKeyTyped"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_oculto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="labelEdad"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

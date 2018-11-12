@@ -1,7 +1,7 @@
 package GestionarUsuario;
 
 public class Usuario {
-    
+
     private String nombreUsuario;
     private String apellidoUsuario;
     private String domicilioUsuario;
@@ -56,8 +56,4 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-
-    
-
 }
-   

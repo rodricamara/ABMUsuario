@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
@@ -17,6 +18,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
 
     public IUGestionarUsuarioAlta() {
         initComponents();
+        label_oculto.setVisible(false);
         llenarComboTipoUsuario();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,6 +63,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
         button_atras = new javax.swing.JButton();
         label_edad = new javax.swing.JLabel();
         textfield_edad = new javax.swing.JTextField();
+        label_oculto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +75,11 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
 
         label_tipo_usuario.setText("Tipo Usuario");
 
+        textfield_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                textfield_nombreFocusGained(evt);
+            }
+        });
         textfield_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_nombreActionPerformed(evt);
@@ -105,6 +113,13 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                 textfield_edadActionPerformed(evt);
             }
         });
+        textfield_edad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfield_edadKeyTyped(evt);
+            }
+        });
+
+        label_oculto.setText("labelEdad");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,6 +146,8 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                     .addComponent(textfield_apellido, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(comboBox_tipoUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textfield_edad))
+                .addGap(31, 31, 31)
+                .addComponent(label_oculto)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,7 +168,8 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_edad)
-                    .addComponent(textfield_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textfield_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_oculto))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_tipo_usuario)
@@ -172,23 +190,25 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBox_tipoUsuarioActionPerformed
 
     private void button_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_crearActionPerformed
-
-        try {
-            String nom = textfield_nombre.getText();
-            String ape = textfield_apellido.getText();
-            String dir = textfield_direccion.getText();
-            String edad = textfield_edad.getText();
-            String tu = comboBox_tipoUsuario.getSelectedItem().toString();
-            DTOUsuario dtoUsuario = new DTOUsuario("" , nom, ape, dir, edad, tu);
-            controlador.insertInUser(dtoUsuario);
-            this.dispose();
-            IUGestionarUsuario iu = new IUGestionarUsuario();
-            iu.setLocationRelativeTo(null);
-            iu.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
+        if (Integer.parseInt(textfield_edad.getText()) <= 99 && Integer.parseInt(textfield_edad.getText()) >= 0) {
+            try {
+                String nom = textfield_nombre.getText();
+                String ape = textfield_apellido.getText();
+                String dir = textfield_direccion.getText();
+                String edad = textfield_edad.getText();
+                String tu = comboBox_tipoUsuario.getSelectedItem().toString();
+                DTOUsuario dtoUsuario = new DTOUsuario("", nom, ape, dir, edad, tu);
+                controlador.insertInUser(dtoUsuario);
+                this.dispose();
+                IUGestionarUsuario iu = new IUGestionarUsuario();
+                iu.setLocationRelativeTo(null);
+                iu.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Edad debe ser entre 0 y 99 años");
         }
-
     }//GEN-LAST:event_button_crearActionPerformed
 
     private void button_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_atrasActionPerformed
@@ -207,8 +227,24 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_nombreActionPerformed
 
     private void textfield_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_edadActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_textfield_edadActionPerformed
+
+    private void textfield_edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_edadKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            label_oculto.setVisible(true);
+            label_oculto.setText("Solo numeros");
+        } else {
+            label_oculto.setVisible(false);
+        }
+    }//GEN-LAST:event_textfield_edadKeyTyped
+
+    private void textfield_nombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textfield_nombreFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_nombreFocusGained
 
     /**
      * @param args the command line arguments
@@ -224,16 +260,24 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -260,6 +304,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
     private javax.swing.JLabel label_direccion;
     private javax.swing.JLabel label_edad;
     private javax.swing.JLabel label_nombre;
+    private javax.swing.JLabel label_oculto;
     private javax.swing.JLabel label_tipo_usuario;
     private javax.swing.JTextField textfield_apellido;
     private javax.swing.JTextField textfield_direccion;

@@ -22,7 +22,6 @@ public class DTOTipoUsuario {
     public void setNombreDTOTipoUsuario(String nombreDTOTipoUsuario) {
         this.nombreDTOTipoUsuario = nombreDTOTipoUsuario;
     }
-    
 
     public enum DTOTUsuario {
         Admin(1), Comun(2);
