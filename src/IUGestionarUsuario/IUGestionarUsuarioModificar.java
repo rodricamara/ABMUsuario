@@ -2,7 +2,9 @@ package IUGestionarUsuario;
 
 import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
+import GestionarUsuario.Utils.Validador;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
@@ -186,26 +188,28 @@ public class IUGestionarUsuarioModificar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AceptarActionPerformed
-        if (Integer.parseInt(textfield_edad.getText()) <= 99 && Integer.parseInt(textfield_edad.getText()) >= 0) {
-            try {
-                String id = dtoUsuario.getIdDTOUsuario();
-                String nom = textfield_nombre.getText();
-                String ape = textfield_apellido.getText();
-                String dir = textfield_dir.getText();
-                String edad = textfield_edad.getText();
-                String tu = combo_TipoUsuario.getSelectedItem().toString();
+        try {
+            String id = dtoUsuario.getIdDTOUsuario();
+            String nom = textfield_nombre.getText();
+            String ape = textfield_apellido.getText();
+            String dir = textfield_dir.getText();
+            String edad = textfield_edad.getText();
+            String tu = combo_TipoUsuario.getSelectedItem().toString();
+            ArrayList<String> jList = new ArrayList<String>();
+            jList.add(nom);
+            jList.add(ape);
+            jList.add(dir);
+            if (Validador.LimitadorEdad(edad, 1, 99) && Validador.validadorString(jList, 2, 15)) {
                 DTOUsuario dtoU = new DTOUsuario(id, nom, ape, dir, edad, tu);
                 controlador.updateUser(dtoU);
                 this.dispose();
                 IUGestionarUsuario iu = new IUGestionarUsuario();
                 iu.setLocationRelativeTo(null);
                 iu.setVisible(true);
-            } catch (Exception e) {
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Edad debe ser entre 0 y 99 años");
+        } catch (SQLException e) {
+            
         }
-
     }//GEN-LAST:event_button_AceptarActionPerformed
 
     private void button_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_CancelarActionPerformed

@@ -70,7 +70,6 @@ public class ExpertoGestionarUsuario {
     }
 
     public void insertInUser(DTOUsuario dtoUsuario) {
-
         try {
             Conexion.getInstance().getConnetion();
             String nom = dtoUsuario.getNombreDTOUsuario();
@@ -85,11 +84,7 @@ public class ExpertoGestionarUsuario {
                     + "VALUES (NULL, '" + nom + "', '" + ape + "', '" + dom + "', '" + edad + "', '" + idTU + "');");
             insertIntoUsuer.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un usuario");
             JOptionPane.showMessageDialog(null, "No se pudo agregar el usuario", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        } catch (NumberFormatException ex) {
-            System.out.println("asdasdasd");
         } finally {
             try {
                 con.close();
@@ -107,9 +102,7 @@ public class ExpertoGestionarUsuario {
                     + "WHERE `idUsuario` = \"" + id + "\";");
             insertIntoUsuer.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("Error al eliminar un usuario");
             JOptionPane.showMessageDialog(null, "Error al eliminar el usuario", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
         } finally {
             try {
                 con.close();
@@ -133,9 +126,7 @@ public class ExpertoGestionarUsuario {
                     + "WHERE `idUsuario` IN (\"" + id + "\");");
             updateUser.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("Error al actualizar usuario");
             JOptionPane.showMessageDialog(null, "Error al actualizar usuario", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
         } finally {
             try {
                 con.close();

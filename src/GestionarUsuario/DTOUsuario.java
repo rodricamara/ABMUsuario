@@ -13,6 +13,14 @@ public class DTOUsuario {
         this.idDTOUsuario = idDTOUsuario;
     }
 
+    public DTOUsuario(String nombreDTOUsuario, String apellidoDTOUsuario, String domicilioDTOUsuario, String edadDTOUsuario, String tipoUsuarioDTOUsuario) {
+        this.nombreDTOUsuario = nombreDTOUsuario;
+        this.apellidoDTOUsuario = apellidoDTOUsuario;
+        this.domicilioDTOUsuario = domicilioDTOUsuario;
+        this.edadDTOUsuario = edadDTOUsuario;
+        this.tipoUsuarioDTOUsuario = tipoUsuarioDTOUsuario;
+    }
+
     public DTOUsuario(String idDTOUsuario, String nombreDTOUsuario, String apellidoDTOUsuario, String domicilioDTOUsuario, String edadDTOUsuario, String tipoUsuarioDTOUsuario) {
         this.idDTOUsuario = idDTOUsuario;
         this.nombreDTOUsuario = nombreDTOUsuario;

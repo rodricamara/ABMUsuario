@@ -23,9 +23,9 @@ public class Validador {
         return condString;
     }
 
-    public static boolean LimitadorEdad(JTextField arg, int min, int max) {
+    public static boolean LimitadorEdad(String arg, int min, int max) {
         try {
-            int num = Integer.parseInt(arg.getText());
+            int num = Integer.parseInt(arg);
             if (num >= min && num <= max) {
                 condEdad = true;
             } else {

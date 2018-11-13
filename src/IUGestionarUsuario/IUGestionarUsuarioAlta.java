@@ -4,14 +4,12 @@ import GestionarUsuario.DTOTipoUsuario;
 import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
 import GestionarUsuario.Utils.Validador;
-import java.awt.List;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
@@ -205,9 +203,9 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
         jList.add(nom);
         jList.add(ape);
         jList.add(dir);
-        if (Validador.LimitadorEdad(textfield_edad, 1, 99) && Validador.validadorString(jList, 2, 15)) {
+        if (Validador.LimitadorEdad(edad, 1, 99) && Validador.validadorString(jList, 2, 15)) {
             try {
-                DTOUsuario dtoUsuario = new DTOUsuario("", nom, ape, dir, edad, tu);
+                DTOUsuario dtoUsuario = new DTOUsuario(nom, ape, dir, edad, tu);
                 controlador.insertInUser(dtoUsuario);
                 this.dispose();
                 IUGestionarUsuario iu = new IUGestionarUsuario();
