@@ -3,6 +3,8 @@ package IUGestionarUsuario;
 import GestionarUsuario.DTOTipoUsuario;
 import GestionarUsuario.ControladorGestionarUsuario;
 import GestionarUsuario.DTOUsuario;
+import GestionarUsuario.Utils.Validador;
+import java.awt.List;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -30,7 +32,6 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                     iu.setLocationRelativeTo(null);
                     iu.setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -83,6 +84,11 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
         textfield_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_nombreActionPerformed(evt);
+            }
+        });
+        textfield_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textfield_nombreKeyTyped(evt);
             }
         });
 
@@ -190,13 +196,17 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBox_tipoUsuarioActionPerformed
 
     private void button_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_crearActionPerformed
-        if (Integer.parseInt(textfield_edad.getText()) <= 99 && Integer.parseInt(textfield_edad.getText()) >= 0) {
+        String nom = textfield_nombre.getText();
+        String ape = textfield_apellido.getText();
+        String dir = textfield_direccion.getText();
+        String edad = textfield_edad.getText();
+        String tu = comboBox_tipoUsuario.getSelectedItem().toString();
+        ArrayList<String> jList = new ArrayList<String>();
+        jList.add(nom);
+        jList.add(ape);
+        jList.add(dir);
+        if (Validador.LimitadorEdad(textfield_edad, 1, 99) && Validador.validadorString(jList, 2, 15)) {
             try {
-                String nom = textfield_nombre.getText();
-                String ape = textfield_apellido.getText();
-                String dir = textfield_direccion.getText();
-                String edad = textfield_edad.getText();
-                String tu = comboBox_tipoUsuario.getSelectedItem().toString();
                 DTOUsuario dtoUsuario = new DTOUsuario("", nom, ape, dir, edad, tu);
                 controlador.insertInUser(dtoUsuario);
                 this.dispose();
@@ -204,10 +214,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
                 iu.setLocationRelativeTo(null);
                 iu.setVisible(true);
             } catch (SQLException ex) {
-                Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Edad debe ser entre 0 y 99 años");
         }
     }//GEN-LAST:event_button_crearActionPerformed
 
@@ -218,7 +225,6 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
             iu.setLocationRelativeTo(null);
             iu.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(IUGestionarUsuarioAlta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button_atrasActionPerformed
 
@@ -246,15 +252,14 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_nombreFocusGained
 
+    private void textfield_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfield_nombreKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_nombreKeyTyped
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -279,10 +284,7 @@ public class IUGestionarUsuarioAlta extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(IUGestionarUsuarioAlta.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IUGestionarUsuarioAlta().setVisible(true);

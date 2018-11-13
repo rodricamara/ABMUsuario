@@ -88,6 +88,8 @@ public class ExpertoGestionarUsuario {
             System.out.println("Error al insertar un usuario");
             JOptionPane.showMessageDialog(null, "No se pudo agregar el usuario", "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
+        } catch (NumberFormatException ex) {
+            System.out.println("asdasdasd");
         } finally {
             try {
                 con.close();
